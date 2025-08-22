@@ -10,12 +10,18 @@
       padding: 40px;
       background: #f4f4f4;
     }
-    h1 {
+
+    .logo-bar {
       text-align: center;
       margin-bottom: 30px;
-      font-weight: bold;
-      color: #333;
     }
+
+    .logo-bar img {
+      height: 50px;
+      margin: 0 15px;
+      vertical-align: middle;
+    }
+
     .container {
       max-width: 500px;
       margin: auto;
@@ -24,22 +30,18 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
+
     h2 {
       text-align: center;
       margin-bottom: 20px;
     }
-    .bottom-heading {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #444;
-    }
+
     label {
       display: block;
       margin-top: 15px;
       font-weight: bold;
     }
+
     input, select {
       width: 100%;
       padding: 10px;
@@ -47,6 +49,7 @@
       border-radius: 5px;
       border: 1px solid #ccc;
     }
+
     button {
       margin-top: 20px;
       width: 100%;
@@ -57,22 +60,34 @@
       border-radius: 5px;
       font-size: 16px;
     }
+
     button:hover {
       background-color: #218838;
+    }
+
+    .bottom-heading {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #444;
     }
   </style>
 </head>
 <body>
 
-  <h1>Genuine All Bank Home Loans Finance</h1>
+  <!-- Logos Top Center -->
+  <div class="logo-bar">
+    <img src="images/icici.png" alt="ICICI">
+    <img src="images/hdfc.jpg" alt="HDFC">
+    <img src="images/sbi.jpeg" alt="SBI">
+    <img src="images/pnb.png" alt="PNB">
+  </div>
 
   <div class="container">
     <h2>Home Loan Query Form</h2>
     <form action="https://formsubmit.co/genuineloan31011@gmail.com" method="POST">
-      <!-- Hide FormSubmit CAPTCHA -->
       <input type="hidden" name="_captcha" value="false">
-
-      <!-- Redirect after submission -->
       <input type="hidden" name="_next" value="https://genuineloan.github.io/genuineloan/thankyou.html">
 
       <label for="name">Full Name</label>
@@ -98,7 +113,6 @@
     </form>
   </div>
 
-  <!-- Bottom centered heading -->
   <div class="bottom-heading">
     Choose One Home Loan Executive and get Multiple Bank Options to Finance your Dream Home
   </div>
