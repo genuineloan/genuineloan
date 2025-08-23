@@ -13,6 +13,34 @@
       color: #333;
     }
 
+    /* Navigation bar */
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 20px;
+      background-color: #ffffffcc;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      margin-left: 16px;
+      padding: 10px 18px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #218838;
+    }
+
     header {
       text-align: center;
       padding: 40px 20px 20px;
@@ -54,82 +82,6 @@
       font-size: 14px;
       color: #2e7d32;
       font-weight: bold;
-    }
-
-    .container {
-      max-width: 460px;
-      margin: 20px auto;
-      background: rgba(255, 255, 255, 0.95);
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.07);
-      backdrop-filter: blur(10px);
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 22px;
-      color: #0066cc;
-      margin-bottom: 25px;
-    }
-
-    label {
-      font-size: 14px;
-      font-weight: 600;
-      margin-top: 16px;
-      display: block;
-      color: #444;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 12px 14px;
-      margin-top: 8px;
-      margin-bottom: 12px;
-      border: none;
-      border-radius: 8px;
-      background: #f0f0f0;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-
-    input:focus, select:focus {
-      outline: 2px solid #28a745;
-      background: #fff;
-    }
-
-    button {
-      margin-top: 20px;
-      width: 100%;
-      padding: 14px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #218838;
-    }
-
-    .trust-badges {
-      text-align: center;
-      font-size: 13px;
-      margin-top: 16px;
-      color: #555;
-    }
-
-    .bottom-heading {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #2c3e50;
-      padding: 0 20px;
     }
 
     .section {
@@ -176,6 +128,15 @@
       top: 0;
     }
 
+    .bottom-heading {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      padding: 0 20px;
+    }
+
     footer {
       text-align: center;
       margin: 40px 0 20px;
@@ -219,9 +180,14 @@
         font-size: 22px;
       }
 
-      .container {
-        margin: 20px 16px;
-        padding: 24px;
+      nav {
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-top: 8px;
       }
 
       .section {
@@ -238,6 +204,12 @@
 </head>
 <body>
 
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Reach out to us</a>
+  </nav>
+
   <!-- Header with Logos -->
   <header>
     <div class="logo-bar">
@@ -248,40 +220,8 @@
     </div>
     <h1>Dream Awas Initiative 🏠</h1>
     <div class="tagline">Making Home Loans Easy | Multiple Banks | Personalized Assistance</div>
-    <div class="badge-bar">✅ RBI-Registered Banks • 🔒 100% Secure Form</div>
+    <div class="badge-bar">✅ RBI-Registered Banks • 🔒 100% Secure Process</div>
   </header>
-
-  <!-- Form Container -->
-  <div class="container">
-    <h2>💼 Quick Loan Enquiry</h2>
-    <form action="https://formsubmit.co/genuineloan31011@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://genuineloan.github.io/genuineloan/thankyou.html">
-
-      <label for="name">👤 Your Name</label>
-      <input type="text" id="name" name="Name" required>
-
-      <label for="phone">📱 Phone Number</label>
-      <input type="tel" id="phone" name="Phone" required pattern="[0-9]{10,15}" placeholder="e.g., 9876543210">
-
-      <label for="loan">💰 Loan Amount Needed</label>
-      <input type="number" id="loan" name="Expected Loan Amount" required>
-
-      <label for="bank">🏦 Preferred Bank</label>
-      <select id="bank" name="Preferred Bank" required>
-        <option value="">Choose a Bank</option>
-        <option value="ICICI">ICICI</option>
-        <option value="HDFC">HDFC</option>
-        <option value="PNB">PNB</option>
-        <option value="SBI">SBI</option>
-        <option value="Other">Other</option>
-      </select>
-
-      <button type="submit">🚀 Submit Your Request</button>
-
-      <div class="trust-badges">🔒 End-to-End Encrypted | 🤝 No Hidden Fees | 🧾 Instant Processing</div>
-    </form>
-  </div>
 
   <!-- Our Mission Section -->
   <div class="section">
