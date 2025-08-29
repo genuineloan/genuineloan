@@ -1,1 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Loan Rates</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0faff, #f9f7ff);
+      color: #333;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 24px;
+      background-color: #ffffffcc;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-logo img {
+      height: 40px;
+    }
+
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 16px;
+    }
+
+    .nav-center a {
+      padding: 10px 18px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: background 0.3s ease;
+    }
+
+    .nav-center a:hover {
+      background-color: #218838;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+    }
+
+    .section h2 {
+      font-size: 22px;
+      color: #0066cc;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 15px;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eaf7ea;
+      color: #2e7d32;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #777;
+      margin-top: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 13px;
+      color: #888;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 22px;
+      }
+
+      th, td {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="nav-logo">
+      <a href="/index.html">
+        <img src="images/logo.png" alt="Dream Awas Logo" />
+      </a>
+    </div>
+    <div class="nav-center">
+      <a href="/index.html">Home</a>
+      <a href="/contactus.html">Reach out to us</a>
+      <a href="/home-loan-rates.html">Home Loan Rates</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header>
+    <h1>Home Loan Rates</h1>
+    <p class="tagline">Compare latest interest rates from top banks and housing finance companies</p>
+  </header>
+
+  <!-- Main Section -->
+  <div class="section">
+    <h2>Current Home Loan Interest Rates Offered by Banks & HFCs – August 2025</h2>
+
+    <table>
+      <tr>
+        <th>Name of Lender</th>
+        <th>Loans Up to Rs. 30 Lakh</th>
+        <th>Loans Above Rs. 30 Lakh to Rs. 75 Lakh</th>
+        <th>Loans Above Rs. 75 Lakh</th>
+      </tr>
+      <tr>
+        <td>State Bank of India</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td>
+      </tr>
+      <tr>
+        <td>HDFC Bank</td><td>7.90% onwards</td><td>7.90% onwards</td><td>7.90% onwards</td>
+      </tr>
+      <tr>
+        <td>Bajaj Housing Finance</td><td>7.45% onwards</td><td>7.45% onwards</td><td>7.45% onwards</td>
+      </tr>
+      <tr>
+        <td>ICICI Bank</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td>
+      </tr>
+      <tr>
+        <td>Axis Bank</td><td>8.35% – 11.90%</td><td>8.35% – 11.90%</td><td>8.35% – 9.35%</td>
+      </tr>
+      <!-- Add more rows as needed... -->
+    </table>
+
+    <p class="note">Note: Interest rates as of 27 August 2025</p>
+
+    <h2>Home Loan Interest Rates Offered by Other Banks & HFCs</h2>
+    <p>The following banks and financial institutions also offer competitive home loan interest rates:</p>
+
+    <table>
+      <tr>
+        <th>Name of Lender</th>
+        <th>Loans Up to Rs. 30 Lakh</th>
+        <th>Loans Above Rs. 30 Lakh to Rs. 75 Lakh</th>
+        <th>Loans Above Rs. 75 Lakh</th>
+      </tr>
+      <tr>
+        <td>Union Bank of India</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td>
+      </tr>
+      <tr>
+        <td>Bank of Baroda</td><td>7.45% – 9.25%</td><td>7.45% – 9.25%</td><td>7.45% – 9.50%</td>
+      </tr>
+      <tr>
+        <td>HSBC India</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td>
+      </tr>
+      <!-- Add more rows as needed... -->
+    </table>
+
+    <p class="note">Note: Interest rates as of 27 August 2025</p>
+
+    <h2>Types of Home Loan Interest Rate</h2>
+    <ul>
+      <li><strong>Fixed Rate Loans:</strong> Interest rate remains constant throughout the loan tenure.</li>
+      <li><strong>Floating Rate Loans:</strong> Interest rate varies with market conditions.</li>
+      <li><strong>Hybrid Loans:</strong> Fixed for a certain period, then becomes floating.</li>
+    </ul>
+
+    <h2>4 Factors Determining Interest Rates of Home Loan</h2>
+    <ol>
+      <li><strong>Credit Score:</strong> A higher score means better loan terms.</li>
+      <li><strong>Home Loan Type:</strong> Type of loan affects rate offered.</li>
+      <li><strong>Occupation Profile:</strong> Stable income sources get better rates.</li>
+      <li><strong>Type of Interest Rate:</strong> Fixed vs Floating impacts EMI and risk.</li>
+    </ol>
+
+    <h2>FAQs on Home Loan Interest Rate</h2>
+    <p><strong>Q: What is the current home loan interest rate?</strong><br>
+    A: Starting from 7.35% p.a. based on credit profile and lender.</p>
+
+    <p><strong>Q: Which bank offers the best rate?</strong><br>
+    A: Bank of India, Central Bank, and Bank of Maharashtra offer rates from 7.35% p.a.</p>
+
+    <p><strong>Q: Does RBI repo rate affect my interest?</strong><br>
+    A: Yes, especially for floating rate home loans linked to external benchmarks like RLLR.</p>
+
+    <p><strong>Q: Fixed or Floating – which is better?</strong><br>
+    A: Floating is lower but fluctuates. Fixed gives EMI predictability but may be higher.</p>
+  </div>
+
+  <footer>
+    &copy; 2025 Dream Awas Initiative | All Rights Reserved
+  </footer>
+</body>
+</html>
 
