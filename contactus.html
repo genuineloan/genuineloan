@@ -13,6 +13,41 @@
       color: #333;
     }
 
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 14px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-logo img {
+      height: 42px;
+    }
+
+    .nav-center {
+      display: flex;
+      gap: 22px;
+    }
+
+    .nav-center a {
+      text-decoration: none;
+      color: #2c3e50;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .nav-center a:hover {
+      color: #0066cc;
+    }
+
+    /* Header */
     header {
       text-align: center;
       padding: 40px 20px 20px;
@@ -37,7 +72,7 @@
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 28px;
       font-weight: 600;
       color: #2c3e50;
     }
@@ -56,13 +91,14 @@
       font-weight: bold;
     }
 
+    /* Form Container */
     .container {
-      max-width: 460px;
-      margin: 20px auto;
+      max-width: 480px;
+      margin: 25px auto;
       background: rgba(255, 255, 255, 0.95);
-      padding: 28px;
-      border-radius: 16px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.07);
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
       backdrop-filter: blur(10px);
     }
 
@@ -88,7 +124,7 @@
       margin-bottom: 12px;
       border: none;
       border-radius: 8px;
-      background: #f0f0f0;
+      background: #f5f5f5;
       font-size: 14px;
       transition: 0.2s;
     }
@@ -247,7 +283,6 @@
       <div class="trust-badges">🔒 End-to-End Encrypted | 🤝 No Hidden Fees | 🧾 Instant Processing</div>
     </form>
   </div>
-
 
   <!-- Bottom Message -->
   <div class="bottom-heading">
