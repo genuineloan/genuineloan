@@ -127,6 +127,38 @@
       color: #888;
     }
 
+    /* WhatsApp Floating Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-float a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #25d366;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp-float a:hover {
+      background: #1ebe5d;
+    }
+
+    .whatsapp-float img {
+      width: 24px;
+      height: 24px;
+    }
+
     @media (max-width: 768px) {
       .section {
         margin: 20px;
@@ -135,6 +167,11 @@
 
       table {
         font-size: 14px;
+      }
+
+      .whatsapp-float a {
+        font-size: 14px;
+        padding: 10px 16px;
       }
     }
 
@@ -145,14 +182,16 @@
 
       th, td {
         font-size: 13px;
-        .section {
+      }
+
+      .section {
         margin: 20px 16px;
         padding: 24px;
       }
 
       .whatsapp-float a {
-        font-size: 14px;
-        padding: 10px 16px;
+        font-size: 13px;
+        padding: 8px 14px;
       }
     }
   </style>
@@ -206,7 +245,6 @@
       <tr>
         <td>Axis Bank</td><td>8.35% – 11.90%</td><td>8.35% – 11.90%</td><td>8.35% – 9.35%</td>
       </tr>
-      <!-- Add more rows as needed... -->
     </table>
 
     <p class="note">Note: Interest rates as of 27 August 2025</p>
@@ -230,7 +268,6 @@
       <tr>
         <td>HSBC India</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td>
       </tr>
-      <!-- Add more rows as needed... -->
     </table>
 
     <p class="note">Note: Interest rates as of 27 August 2025</p>
