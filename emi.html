@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMI Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand:#28a745;
+      --brand-dark:#218838;
+      --ink:#2c3e50;
+      --bg1:#f0faff;
+      --bg2:#f9f7ff;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --shadow:0 10px 35px rgba(0,0,0,.07);
+      --radius:16px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Poppins',sans-serif;
+      background:linear-gradient(135deg,var(--bg1),var(--bg2));
+      color:#333;
+    }
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:12px 24px;background:#ffffffcc;backdrop-filter:saturate(1.2) blur(4px);
+      box-shadow:0 4px 12px rgba(0,0,0,.05);position:sticky;top:0;z-index:10;
+    }
+    .nav-center{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:16px}
+    .nav-center a{padding:10px 18px;background:var(--brand);color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-size:14px;transition:.2s}
+    .nav-center a:hover{background:var(--brand-dark)}
+    .nav-logo img{height:40px}
+
+    header{text-align:center;padding:40px 20px 10px}
+    h1{font-size:28px;color:var(--ink);margin:0 0 6px}
+    .tagline{color:#64748b;font-size:14px}
+
+    .wrap{max-width:1100px;margin:24px auto 60px;padding:0 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+
+    .section-title{font-size:18px;color:#0066cc;margin:0 0 14px}
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .field{display:flex;flex-direction:column;gap:8px}
+    label{font-weight:600;font-size:14px;color:#374151}
+    input[type="number"],input[type="text"],select{
+      padding:12px 12px;border:1px solid #d1d5db;border-radius:10px;font-size:15px;outline:none;
+      transition:border .15s ease;
+    }
+    input:focus,select:focus{border-color:#7c3aed}
+    .row{display:flex;gap:12px;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;
+      background:var(--brand);color:#fff;border:none;border-radius:10px;padding:12px 18px;
+      font-weight:600;cursor:pointer;transition:.2s
+    }
+    .btn:hover{background:var(--brand-dark)}
+    .btn.alt{background:#0ea5e9}.btn.alt:hover{background:#0284c7}
+    .btn.ghost{background:#eef2ff;color:#334155}.btn.ghost:hover{background:#e0e7ff}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+
+    .results{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:10px}
+    .stat{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:16px}
+    .stat h3{margin:0 0 6px;font-size:13px;color:#475569;font-weight:600}
+    .stat .val{font-size:20px;font-weight:700;color:#111827}
+
+    .note{color:#6b7280;font-size:12px;margin-top:8px}
+    details{margin-top:14px}
+    summary{cursor:pointer;font-weight:600;color:#0066cc}
+
+    table{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+    th,td{border:1px solid #e5e7eb;padding:10px;text-align:right}
+    th{background:#eaf7ea;color:#2e7d32}
+    td:first-child,th:first-child{text-align:left}
+    .sticky-foot{text-align:center;margin:40px 0 20px;color:#888;font-size:13px}
+
+    @media (max-width: 980px){
+      .wrap{grid-template-columns:1fr}
+      .results{grid-template-columns:1fr 1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid{grid-template-columns:1fr}
+      .results{grid-template-columns:1fr}
+      h1{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">
+      <a href="/index.html"><img src="images/logo.png" alt="Dream Awas Logo"></a>
+    </div>
+    <div class="nav-center">
+      <a href="/index.html">Home</a>
+      <a href="/contactus.html">Reach out to us</a>
+      <a href="/home-loan-rates.html">Home Loan Rates</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>EMI Calculator</h1>
+    <p class="tagline">Estimate your monthly EMI, total interest, and total payment in seconds.</p>
+  </header>
+
+  <div class="wrap">
+    <!-- Left: Inputs -->
+    <section class="card">
+      <h2 class="section-title">Loan Details</h2>
+      <div class="grid">
+        <div class="field">
+          <label for="amount">Loan Amount (₹)</label>
+          <input type="number" id="amount" placeholder="e.g., 3000000" min="0" step="1000" value="3000000">
+        </div>
+
+        <div class="field">
+          <label for="rate">Annual Interest Rate (% p.a.)</label>
+          <input type="number" id="rate" placeholder="e.g., 8.5" min="0" step="0.01" value="8.50">
+        </div>
+
+        <div class="field">
+          <label for="tenure">Tenure</label>
+          <div class="row">
+            <input type="number" id="tenure" placeholder="e.g., 20" min="1" step="1" value="20" style="flex:1">
+            <select id="tenureUnit" aria-label="Tenure unit">
+              <option value="years" selected>Years</option>
+              <option value="months">Months</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="processingFee">Processing Fee (optional, ₹)</label>
+          <input type="number" id="processingFee" placeholder="e.g., 10000" min="0" step="100" value="0">
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" id="calcBtn">Calculate EMI</button>
+        <button class="btn ghost" id="resetBtn" type="button">Reset</button>
+        <button class="btn alt" id="exportBtn" type="button" title="Download amortization as CSV">Export CSV</button>
+      </div>
+
+      <p class="note">Formula: EMI = P × r × (1+r)<sup>n</sup> / [(1+r)<sup>n</sup> − 1], where r = monthly rate and n = number of months.</p>
+    </section>
+
+    <!-- Right: Results -->
+    <section class="card">
+      <h2 class="section-title">Results</h2>
+
+      <div class="results">
+        <div class="stat">
+          <h3>Monthly EMI</h3>
+          <div class="val" id="emiVal">₹ 0</div>
+        </div>
+        <div class="stat">
+          <h3>Total Interest</h3>
+          <div class="val" id="interestVal">₹ 0</div>
+        </div>
+        <div class="stat">
+          <h3>Total Payment</h3>
+          <div class="val" id="totalVal">₹ 0</div>
+        </div>
+      </div>
+
+      <details id="scheduleWrap">
+        <summary>Show Amortization Schedule</summary>
+        <table id="scheduleTable" aria-label="Amortization schedule">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>Beginning Balance (₹)</th>
+              <th>Interest (₹)</th>
+              <th>Principal (₹)</th>
+              <th>EMI (₹)</th>
+              <th>Ending Balance (₹)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </details>
+
+      <p class="note" id="feeNote" style="display:none;"></p>
+    </section>
+  </div>
+
+  <footer class="sticky-foot">© 2025 Dream Awas. All rights reserved.</footer>
+
+  <script>
+    const amountEl = document.getElementById('amount');
+    const rateEl = document.getElementById('rate');
+    const tenureEl = document.getElementById('tenure');
+    const tenureUnitEl = document.getElementById('tenureUnit');
+    const procFeeEl = document.getElementById('processingFee');
+
+    const emiValEl = document.getElementById('emiVal');
+    const interestValEl = document.getElementById('interestVal');
+    const totalValEl = document.getElementById('totalVal');
+    const feeNoteEl = document.getElementById('feeNote');
+
+    const scheduleTbody = document.querySelector('#scheduleTable tbody');
+
+    const fmt = (num) => {
+      if (!isFinite(num)) return '—';
+      return '₹ ' + num.toLocaleString('en-IN', { maximumFractionDigits: 0 });
+    };
+
+    function calc(){
+      const P = Number(amountEl.value || 0);
+      const annualRate = Number(rateEl.value || 0);
+      const fee = Number(procFeeEl.value || 0);
+
+      let n = Number(tenureEl.value || 0);
+      if (tenureUnitEl.value === 'years') n = n * 12; // months
+
+      if (P <= 0 || n <= 0 || annualRate < 0){
+        emiValEl.textContent = '₹ 0';
+        interestValEl.textContent = '₹ 0';
+        totalValEl.textContent = '₹ 0';
+        scheduleTbody.innerHTML = '';
+        feeNoteEl.style.display = 'none';
+        return { schedule: [] };
+      }
+
+      const r = annualRate / 12 / 100;
+
+      // EMI calculation (handle zero-interest gracefully)
+      const EMI = r === 0 ? P / n : (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+
+      let balance = P;
+      const schedule = [];
+      let totalInterest = 0;
+
+      for (let m = 1; m <= n; m++){
+        const interest = r === 0 ? 0 : balance * r;
+        const principal = Math.min(EMI - interest, balance);
+        const endBal = Math.max(balance - principal, 0);
+
+        schedule.push({
+          month: m,
+          begin: balance,
+          interest: interest,
+          principal: principal,
+          emi: r === 0 ? principal : EMI,
+          end: endBal
+        });
+
+        totalInterest += interest;
+        balance = endBal;
+      }
+
+      const totalPayment = P + totalInterest;
+      emiValEl.textContent = fmt(r === 0 ? schedule[0].emi : EMI);
+      interestValEl.textContent = fmt(totalInterest);
+      totalValEl.textContent = fmt(totalPayment);
+
+      // Processing fee note
+      if (fee > 0){
+        feeNoteEl.textContent = `Note: One-time processing fee of ${fmt(fee)} is not included in EMI. Effective upfront outgo: ${fmt(P + fee)}.`;
+        feeNoteEl.style.display = 'block';
+      } else {
+        feeNoteEl.style.display = 'none';
+      }
+
+      // Render first 360 rows max for performance; still export full CSV
+      const MAX_ROWS = 360;
+      scheduleTbody.innerHTML = '';
+      const rowsToRender = Math.min(schedule.length, MAX_ROWS);
+      for (let i = 0; i < rowsToRender; i++){
+        const s = schedule[i];
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${s.month}</td>
+          <td>${fmt(s.begin)}</td>
+          <td>${fmt(s.interest)}</td>
+          <td>${fmt(s.principal)}</td>
+          <td>${fmt(s.emi)}</td>
+          <td>${fmt(s.end)}</td>`;
+        scheduleTbody.appendChild(tr);
+      }
+      if (schedule.length > MAX_ROWS){
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td colspan="6" style="text-align:center;color:#64748b">Showing first ${MAX_ROWS} months. Download CSV for full schedule.</td>`;
+        scheduleTbody.appendChild(tr);
+      }
+
+      return { schedule, EMI, totalInterest, totalPayment };
+    }
+
+    // Export amortization as CSV
+    function exportCSV(schedule){
+      if (!schedule || schedule.length === 0) return;
+      const headers = ['Month','Beginning Balance','Interest','Principal','EMI','Ending Balance'];
+      const lines = [headers.join(',')];
+      schedule.forEach(s=>{
+        lines.push([
+          s.month,
+          Math.round(s.begin),
+          Math.round(s.interest),
+          Math.round(s.principal),
+          Math.round(s.emi),
+          Math.round(s.end)
+        ].join(','));
+      });
+      const blob = new Blob([lines.join('\n')], {type:'text/csv;charset=utf-8;'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'amortization_schedule.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // Wire up buttons
+    const calcBtn = document.getElementById('calcBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const exportBtn = document.getElementById('exportBtn');
+
+    let lastSchedule = [];
+    calcBtn.addEventListener('click', ()=>{
+      const res = calc();
+      lastSchedule = res.schedule;
+      // auto-open schedule on first calc
+      if (lastSchedule.length && !document.getElementById('scheduleWrap').open){
+        document.getElementById('scheduleWrap').open = true;
+      }
+    });
+
+    exportBtn.addEventListener('click', ()=> exportCSV(lastSchedule));
+
+    resetBtn.addEventListener('click', ()=>{
+      amountEl.value = 3000000;
+      rateEl.value = 8.50;
+      tenureEl.value = 20;
+      tenureUnitEl.value = 'years';
+      procFeeEl.value = 0;
+      lastSchedule = [];
+      scheduleTbody.innerHTML = '';
+      emiValEl.textContent = '₹ 0';
+      interestValEl.textContent = '₹ 0';
+      totalValEl.textContent = '₹ 0';
+      feeNoteEl.style.display = 'none';
+      window.scrollTo({top:0,behavior:'smooth'});
+    });
+
+    // Calculate on load with defaults
+    window.addEventListener('load', calc);
+  </script>
+</body>
+</html>
