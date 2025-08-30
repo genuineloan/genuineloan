@@ -201,7 +201,79 @@
   </div>
 
   <script>
-    // same JS as before (calc, reset, export) ...
+    function formatINR(num) {
+      return "₹ " + num.toLocaleString("en-IN", {maximumFractionDigits:0});
+    }
+
+    document.getElementById("calcBtn").addEventListener("click", () => {
+      const P = parseFloat(document.getElementById("amount").value);
+      const annualRate = parseFloat(document.getElementById("rate").value);
+      const tenure = parseInt(document.getElementById("tenure").value);
+      const tenureUnit = document.getElementById("tenureUnit").value;
+      const fee = parseFloat(document.getElementById("processingFee").value);
+
+      const n = tenureUnit === "years" ? tenure * 12 : tenure;
+      const r = annualRate / 12 / 100;
+
+      const emi = (P * r * Math.pow(1+r, n)) / (Math.pow(1+r, n)-1);
+
+      const totalPayment = emi * n + fee;
+      const totalInterest = totalPayment - P - fee;
+
+      document.getElementById("emiVal").innerText = formatINR(Math.round(emi));
+      document.getElementById("interestVal").innerText = formatINR(Math.round(totalInterest));
+      document.getElementById("totalVal").innerText = formatINR(Math.round(totalPayment));
+
+      const tbody = document.querySelector("#scheduleTable tbody");
+      tbody.innerHTML = "";
+      let balance = P;
+      for(let i=1;i<=n;i++){
+        let interest = balance * r;
+        let principal = emi - interest;
+        let endBalance = balance - principal;
+        const row = `<tr>
+          <td>${i}</td>
+          <td>${formatINR(Math.round(balance))}</td>
+          <td>${formatINR(Math.round(interest))}</td>
+          <td>${formatINR(Math.round(principal))}</td>
+          <td>${formatINR(Math.round(emi))}</td>
+          <td>${formatINR(Math.round(endBalance))}</td>
+        </tr>`;
+        tbody.insertAdjacentHTML("beforeend", row);
+        balance = endBalance;
+      }
+
+      document.getElementById("feeNote").style.display = fee>0 ? "block" : "none";
+      document.getElementById("feeNote").innerText = "Note: A processing fee of " + formatINR(fee) + " is added.";
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      document.getElementById("amount").value = 3000000;
+      document.getElementById("rate").value = 8.5;
+      document.getElementById("tenure").value = 20;
+      document.getElementById("tenureUnit").value = "years";
+      document.getElementById("processingFee").value = 0;
+
+      document.getElementById("emiVal").innerText = "₹ 0";
+      document.getElementById("interestVal").innerText = "₹ 0";
+      document.getElementById("totalVal").innerText = "₹ 0";
+      document.querySelector("#scheduleTable tbody").innerHTML = "";
+      document.getElementById("feeNote").style.display = "none";
+    });
+
+    document.getElementById("exportBtn").addEventListener("click", () => {
+      const rows = [["Month","Beginning Balance","Interest","Principal","EMI","Ending Balance"]];
+      document.querySelectorAll("#scheduleTable tbody tr").forEach(tr=>{
+        const cells = Array.from(tr.children).map(td=>td.innerText.replace("₹ ","").replace(/,/g,""));
+        rows.push(cells);
+      });
+      let csvContent = rows.map(e=>e.join(",")).join("\n");
+      let blob = new Blob([csvContent], {type:"text/csv;charset=utf-8;"});
+      let link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "AmortizationSchedule.csv";
+      link.click();
+    });
   </script>
 </body>
 </html>
