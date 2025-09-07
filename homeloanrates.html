@@ -11,6 +11,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #f0faff, #f9f7ff);
       color: #333;
+      line-height: 1.6;
     }
 
     /* NAVIGATION */
@@ -59,7 +60,7 @@
       gap: 4px;
     }
     .menu-toggle span {
-      width: 24px;
+      width: 26px;
       height: 3px;
       background: #333;
       border-radius: 2px;
@@ -73,8 +74,8 @@
         left: 0;
         width: 100%;
         flex-direction: column;
-        background: white;
-        padding: 10px;
+        background: #fff;
+        padding: 12px;
         box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       }
       .nav-center.show {
@@ -83,38 +84,49 @@
       .menu-toggle {
         display: flex;
       }
+      .nav-center a {
+        width: 100%;
+        text-align: center;
+        font-size: 15px;
+      }
     }
 
+    /* Header */
     header {
       text-align: center;
-      padding: 30px 20px 10px;
+      padding: 24px 16px 12px;
     }
 
     h1 {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 600;
       color: #2c3e50;
+      margin-bottom: 6px;
+    }
+    .tagline {
+      font-size: 14px;
+      color: #555;
     }
 
+    /* Sections */
     .section {
       max-width: 1000px;
-      margin: 20px auto;
+      margin: 16px auto;
       background: #ffffff;
-      padding: 24px;
+      padding: 20px;
       border-radius: 14px;
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     }
 
     .section h2 {
-      font-size: 20px;
+      font-size: 18px;
       color: #0066cc;
       margin-bottom: 8px;
     }
 
-    .section p {
-      font-size: 15px;
+    .section p, li {
+      font-size: 14px;
       color: #444;
-      line-height: 1.6;
     }
 
     /* Responsive Tables */
@@ -122,6 +134,7 @@
       width: 100%;
       overflow-x: auto;
       margin: 15px 0;
+      -webkit-overflow-scrolling: touch;
     }
     table {
       width: 100%;
@@ -142,17 +155,9 @@
     }
 
     .note {
-      font-size: 13px;
+      font-size: 12px;
       color: #777;
       margin-top: 6px;
-    }
-
-    ul, ol {
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
-    li {
-      margin-bottom: 6px;
     }
 
     footer {
@@ -160,6 +165,7 @@
       margin: 30px 0 20px;
       font-size: 12px;
       color: #888;
+      padding: 0 12px;
     }
 
     /* WhatsApp Floating Button */
@@ -189,6 +195,22 @@
     .whatsapp-float img {
       width: 22px;
       height: 22px;
+    }
+
+    /* Smaller Devices */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 20px;
+      }
+      .section {
+        padding: 16px;
+      }
+      table {
+        font-size: 13px;
+      }
+      th, td {
+        padding: 8px;
+      }
     }
   </style>
 </head>
