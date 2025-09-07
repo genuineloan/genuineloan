@@ -13,11 +13,12 @@
       color: #333;
     }
 
+    /* NAVIGATION */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 24px;
+      padding: 12px 20px;
       background-color: #ffffffcc;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
       position: sticky;
@@ -26,173 +27,168 @@
     }
 
     .nav-logo img {
-      height: 40px;
+      height: 36px;
     }
 
     .nav-center {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       display: flex;
-      gap: 16px;
+      gap: 14px;
     }
 
     .nav-center a {
-      padding: 10px 18px;
+      padding: 8px 14px;
       background-color: #28a745;
       color: white;
       text-decoration: none;
-      border-radius: 8px;
+      border-radius: 6px;
       font-weight: 600;
       font-size: 14px;
       transition: background 0.3s ease;
+      white-space: nowrap;
     }
 
     .nav-center a:hover {
       background-color: #218838;
     }
 
+    /* Hamburger for Mobile */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-center {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      }
+      .nav-center.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
     header {
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 30px 20px 10px;
     }
 
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 600;
       color: #2c3e50;
     }
 
     .section {
       max-width: 1000px;
-      margin: 40px auto;
+      margin: 20px auto;
       background: #ffffff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
     }
 
     .section h2 {
-      font-size: 22px;
+      font-size: 20px;
       color: #0066cc;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .section p {
-      font-size: 16px;
+      font-size: 15px;
       color: #444;
       line-height: 1.6;
     }
 
+    /* Responsive Tables */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 15px 0;
+    }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
-      font-size: 15px;
+      font-size: 14px;
+      min-width: 600px;
     }
-
     table, th, td {
       border: 1px solid #ccc;
     }
-
     th, td {
       padding: 10px;
       text-align: left;
     }
-
     th {
       background-color: #eaf7ea;
       color: #2e7d32;
     }
 
     .note {
-      font-size: 14px;
+      font-size: 13px;
       color: #777;
-      margin-top: 10px;
+      margin-top: 6px;
     }
 
-    ul {
+    ul, ol {
       margin-left: 20px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
-
     li {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
 
     footer {
       text-align: center;
-      margin: 40px 0 20px;
-      font-size: 13px;
+      margin: 30px 0 20px;
+      font-size: 12px;
       color: #888;
     }
 
     /* WhatsApp Floating Button */
     .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
+      bottom: 18px;
+      right: 18px;
       z-index: 1000;
     }
-
     .whatsapp-float a {
       display: flex;
       align-items: center;
       gap: 8px;
       background: #25d366;
       color: #fff;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border-radius: 50px;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       box-shadow: 0 6px 15px rgba(0,0,0,0.2);
       transition: background 0.3s ease;
     }
-
     .whatsapp-float a:hover {
       background: #1ebe5d;
     }
-
     .whatsapp-float img {
-      width: 24px;
-      height: 24px;
-    }
-
-    @media (max-width: 768px) {
-      .section {
-        margin: 20px;
-        padding: 20px;
-      }
-
-      table {
-        font-size: 14px;
-      }
-
-      .whatsapp-float a {
-        font-size: 14px;
-        padding: 10px 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 22px;
-      }
-
-      th, td {
-        font-size: 13px;
-      }
-
-      .section {
-        margin: 20px 16px;
-        padding: 24px;
-      }
-
-      .whatsapp-float a {
-        font-size: 13px;
-        padding: 8px 14px;
-      }
+      width: 22px;
+      height: 22px;
     }
   </style>
 </head>
@@ -204,6 +200,9 @@
       <a href="/index.html">
         <img src="images/logo.png" alt="Dream Awas Logo" />
       </a>
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-center').classList.toggle('show')">
+      <span></span><span></span><span></span>
     </div>
     <div class="nav-center">
       <a href="/index.html">Home</a>
@@ -222,84 +221,67 @@
 
   <!-- Main Section -->
   <div class="section">
-    <h2>Current Home Loan Interest Rates Offered by Banks & HFCs – August 2025</h2>
-
-    <table>
-      <tr>
-        <th>Name of Lender</th>
-        <th>Loans Up to Rs. 30 Lakh</th>
-        <th>Loans Above Rs. 30 Lakh to Rs. 75 Lakh</th>
-        <th>Loans Above Rs. 75 Lakh</th>
-      </tr>
-      <tr>
-        <td>State Bank of India</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td>
-      </tr>
-      <tr>
-        <td>HDFC Bank</td><td>7.90% onwards</td><td>7.90% onwards</td><td>7.90% onwards</td>
-      </tr>
-      <tr>
-        <td>Bajaj Housing Finance</td><td>7.45% onwards</td><td>7.45% onwards</td><td>7.45% onwards</td>
-      </tr>
-      <tr>
-        <td>ICICI Bank</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td>
-      </tr>
-      <tr>
-        <td>Axis Bank</td><td>8.35% – 11.90%</td><td>8.35% – 11.90%</td><td>8.35% – 9.35%</td>
-      </tr>
-    </table>
-
+    <h2>Current Home Loan Interest Rates – August 2025</h2>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Lender</th>
+          <th>Up to ₹30 Lakh</th>
+          <th>₹30–75 Lakh</th>
+          <th>Above ₹75 Lakh</th>
+        </tr>
+        <tr><td>State Bank of India</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td><td>7.50% – 8.95%</td></tr>
+        <tr><td>HDFC Bank</td><td>7.90% onwards</td><td>7.90% onwards</td><td>7.90% onwards</td></tr>
+        <tr><td>Bajaj Housing Finance</td><td>7.45% onwards</td><td>7.45% onwards</td><td>7.45% onwards</td></tr>
+        <tr><td>ICICI Bank</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td></tr>
+        <tr><td>Axis Bank</td><td>8.35% – 11.90%</td><td>8.35% – 11.90%</td><td>8.35% – 9.35%</td></tr>
+      </table>
+    </div>
     <p class="note">Note: Interest rates as of 27 August 2025</p>
 
-    <h2>Home Loan Interest Rates Offered by Other Banks & HFCs</h2>
-    <p>The following banks and financial institutions also offer competitive home loan interest rates:</p>
-
-    <table>
-      <tr>
-        <th>Name of Lender</th>
-        <th>Loans Up to Rs. 30 Lakh</th>
-        <th>Loans Above Rs. 30 Lakh to Rs. 75 Lakh</th>
-        <th>Loans Above Rs. 75 Lakh</th>
-      </tr>
-      <tr>
-        <td>Union Bank of India</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td>
-      </tr>
-      <tr>
-        <td>Bank of Baroda</td><td>7.45% – 9.25%</td><td>7.45% – 9.25%</td><td>7.45% – 9.50%</td>
-      </tr>
-      <tr>
-        <td>HSBC India</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td>
-      </tr>
-    </table>
-
+    <h2>Other Banks & HFCs</h2>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>Lender</th>
+          <th>Up to ₹30 Lakh</th>
+          <th>₹30–75 Lakh</th>
+          <th>Above ₹75 Lakh</th>
+        </tr>
+        <tr><td>Union Bank of India</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td><td>7.35% – 10.00%</td></tr>
+        <tr><td>Bank of Baroda</td><td>7.45% – 9.25%</td><td>7.45% – 9.25%</td><td>7.45% – 9.50%</td></tr>
+        <tr><td>HSBC India</td><td>7.70% onwards</td><td>7.70% onwards</td><td>7.70% onwards</td></tr>
+      </table>
+    </div>
     <p class="note">Note: Interest rates as of 27 August 2025</p>
 
     <h2>Types of Home Loan Interest Rate</h2>
     <ul>
-      <li><strong>Fixed Rate Loans:</strong> Interest rate remains constant throughout the loan tenure.</li>
-      <li><strong>Floating Rate Loans:</strong> Interest rate varies with market conditions.</li>
-      <li><strong>Hybrid Loans:</strong> Fixed for a certain period, then becomes floating.</li>
+      <li><strong>Fixed Rate:</strong> Constant throughout loan tenure.</li>
+      <li><strong>Floating Rate:</strong> Varies with market conditions.</li>
+      <li><strong>Hybrid:</strong> Fixed for some years, then floating.</li>
     </ul>
 
-    <h2>4 Factors Determining Interest Rates of Home Loan</h2>
+    <h2>Factors Affecting Rates</h2>
     <ol>
-      <li><strong>Credit Score:</strong> A higher score means better loan terms.</li>
-      <li><strong>Home Loan Type:</strong> Type of loan affects rate offered.</li>
-      <li><strong>Occupation Profile:</strong> Stable income sources get better rates.</li>
-      <li><strong>Type of Interest Rate:</strong> Fixed vs Floating impacts EMI and risk.</li>
+      <li><strong>Credit Score:</strong> Higher score = better terms.</li>
+      <li><strong>Loan Type:</strong> Different types have different rates.</li>
+      <li><strong>Occupation:</strong> Stable income gets better rates.</li>
+      <li><strong>Rate Type:</strong> Fixed vs Floating impacts EMI.</li>
     </ol>
 
-    <h2>FAQs on Home Loan Interest Rate</h2>
-    <p><strong>Q: What is the current home loan interest rate?</strong><br>
-    A: Starting from 7.35% p.a. based on credit profile and lender.</p>
+    <h2>FAQs</h2>
+    <p><strong>Q:</strong> What is the current home loan rate?<br>
+       <strong>A:</strong> Starting from 7.35% p.a.</p>
 
-    <p><strong>Q: Which bank offers the best rate?</strong><br>
-    A: Bank of India, Central Bank, and Bank of Maharashtra offer rates from 7.35% p.a.</p>
+    <p><strong>Q:</strong> Which bank has the best rate?<br>
+       <strong>A:</strong> Bank of India, Central Bank, Bank of Maharashtra (from 7.35%).</p>
 
-    <p><strong>Q: Does RBI repo rate affect my interest?</strong><br>
-    A: Yes, especially for floating rate home loans linked to external benchmarks like RLLR.</p>
+    <p><strong>Q:</strong> Does RBI repo rate affect my rate?<br>
+       <strong>A:</strong> Yes, especially for floating loans linked to RLLR.</p>
 
-    <p><strong>Q: Fixed or Floating – which is better?</strong><br>
-    A: Floating is lower but fluctuates. Fixed gives EMI predictability but may be higher.</p>
+    <p><strong>Q:</strong> Fixed or Floating – which is better?<br>
+       <strong>A:</strong> Floating is lower but can rise; Fixed is stable but higher.</p>
   </div>
 
   <footer>
@@ -312,6 +294,5 @@
       <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp"> Chat Now
     </a>
   </div>
-  
 </body>
 </html>
