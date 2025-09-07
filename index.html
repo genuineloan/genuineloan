@@ -55,6 +55,17 @@
       background-color: #218838;
     }
 
+    /* Banner */
+    .free-banner {
+      background: #28a745;
+      color: white;
+      text-align: center;
+      padding: 12px 8px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
     header {
       text-align: center;
       padding: 30px 16px 16px;
@@ -156,18 +167,46 @@
 
     footer {
       text-align: center;
-      margin: 30px 0 10px;
+      margin: 20px 0 10px;
       font-size: 12px;
       color: #888;
     }
 
-    /* Visitor Counter */
+    /* Visitor Counter Styled as Analog Meter */
     .visitor-counter {
       text-align: center;
-      font-size: 13px;
+      margin: 20px auto 40px;
+    }
+
+    .visitor-title {
+      font-size: 16px;
       font-weight: 600;
-      color: #2e7d32;
-      margin-bottom: 20px;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+
+    .counter-box {
+      display: inline-flex;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: inset 0 0 8px rgba(0,0,0,0.6);
+    }
+
+    .digit {
+      background: #fff;
+      color: #222;
+      font-weight: bold;
+      font-size: 28px;
+      width: 30px;
+      height: 40px;
+      margin: 0 2px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 -3px 3px rgba(0,0,0,0.2);
+      font-family: monospace;
     }
 
     /* WhatsApp Floating Button */
@@ -212,6 +251,7 @@
       }
       h1 { font-size: 22px; }
       .section { margin: 20px 12px; padding: 20px; }
+      .digit { font-size: 24px; width: 26px; height: 36px; }
     }
 
     @media (max-width: 480px) {
@@ -219,6 +259,7 @@
       .section h3 { font-size: 18px; }
       .nav-center a { font-size: 13px; padding: 8px 12px; }
       .whatsapp-float a { font-size: 13px; padding: 8px 12px; }
+      .digit { font-size: 20px; width: 24px; height: 32px; }
     }
   </style>
 </head>
@@ -239,6 +280,11 @@
       <a href="/services.html">Products & Services</a>
     </div>
   </nav>
+
+  <!-- Free Services Banner -->
+  <div class="free-banner">
+    🚀 Our Services are FREE. There are No Charges for Connecting you to a Verified Home Loan Executive
+  </div>
 
   <!-- Header with Logos -->
   <header>
@@ -284,7 +330,8 @@
 
   <!-- Visitor Counter -->
   <div class="visitor-counter">
-    👥 Visitor Count: <span id="visitorCount"></span>
+    <div class="visitor-title">👥 Visitor Count</div>
+    <div class="counter-box" id="visitorCounter"></div>
   </div>
 
   <!-- WhatsApp Floating Button -->
@@ -297,9 +344,22 @@
   <script>
     // Generate a random 6-digit number
     function generateVisitorCount() {
-      return Math.floor(100000 + Math.random() * 900000);
+      return Math.floor(100000 + Math.random() * 900000).toString();
     }
-    document.getElementById("visitorCount").textContent = generateVisitorCount();
+
+    function renderVisitorCount() {
+      const visitorNumber = generateVisitorCount();
+      const container = document.getElementById("visitorCounter");
+      container.innerHTML = "";
+      for (let digit of visitorNumber) {
+        const span = document.createElement("span");
+        span.className = "digit";
+        span.textContent = digit;
+        container.appendChild(span);
+      }
+    }
+
+    renderVisitorCount();
   </script>
 
 </body>
